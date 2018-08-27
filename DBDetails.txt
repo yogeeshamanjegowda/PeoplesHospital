@@ -1,0 +1,38 @@
+sqlplus / as sysdba
+create user aj identified aj
+grant connect, resource to aj
+
+sqlplus aj/aj
+
+create table officialuser (
+	username varchar(20) not null,
+	password varchar(20) not null,
+	type varchar(10) not null
+);
+
+insert into officialuser values('Jeevitha','jeevitha','admin');
+	
+create table doctors(
+	name varchar(20) not null,
+	education varchar(30) not null,
+	specialization varchar(20) not null,
+	designation varchar(20) not null,
+	Address varchar(100) not null,
+	phone varchar(10) not null
+	experience number(2) not null,
+	status varchar(10) not null,
+	dob date not null,
+	doj date not null,
+	LWD date
+);
+alter table doctors add dob date;
+insert into doctors values('Tejaswini','MD','gynecologist','HOD', '#51 MIG4 Housing Board Chikkamagaluru - 577100','9800980030',DATE'1970-02-02',DATE'2000-02-02','',20,'present');
+
+create table appointmentdetails(
+	pname varchar(20) not null,
+	Address varchar(100) not null,
+	phone varchar(10) not null,
+	doctor varchar(20) not null,
+	department varchar(20) not null,
+	pstatus varchar(10) not null
+);
